@@ -10,8 +10,8 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 RUN mkdir app
 COPY --from=builder app ./app
-# RUN chown -R node:node app
-# USER node
+RUN chown -R node:node app
+USER node
 EXPOSE 3000
 WORKDIR /app
 CMD ["node", "out/index.js"]
