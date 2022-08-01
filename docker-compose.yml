@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  pdf_service:
+    restart: always
+    build: .
+    container_name: koa_server
+    volumes:
+      - ./result:/app/result
+    ports:
+      - 3000:3000
+    logging: 
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
