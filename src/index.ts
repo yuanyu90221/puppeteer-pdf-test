@@ -8,7 +8,8 @@ interface Args {
   pdf_file_name: string;
 }
 const PORT: number = 3000;
-const output_dir = 'result'
+console.log(`env: ${process.env.OUTPUT_DIR}`);
+const output_dir = process.env.OUTPUT_DIR? process.env.OUTPUT_DIR:'result';
 const printWebPageToPDF = async (args: Args) => {
   const {url, pdf_file_name} = args;
   // step 1 launch webpage

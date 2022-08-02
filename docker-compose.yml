@@ -3,8 +3,12 @@ version: '3'
 services:
   pdf_service:
     restart: always
-    build: .
+    build:
+      context: .
+      dockerfile: ./Dockerfile-compose
     container_name: koa_server
+    environment:
+      - OUTPUT_DIR=result
     volumes:
       - ./result:/app/result
     ports:
